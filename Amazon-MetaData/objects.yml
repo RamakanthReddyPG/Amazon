@@ -1,0 +1,7 @@
+loginPage:
+loginBox: "//*[@id='nav-link-accountList']/span"
+emailInputField: "//*[@id='ap_email']"
+continueCTA: "//*[@id='continue']"
+passwordInputField: "//*[@id='ap_password']"
+successfulLogin: "//*[@id='nav-link-accountList']"
+unsuccessfulLogin: "//span[@class='a-list-item'][normalize-space()='Your password is incorrect']"
