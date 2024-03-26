@@ -1,7 +1,7 @@
 const yaml = require('js-yaml');
 const fs = require('fs');
 const { Before, After } = require("@cucumber/cucumber");
-
+require('dotenv').config();
 
 // Load YAML data from file
 let locators;
@@ -36,9 +36,9 @@ const loginObject = {
     async validLogin(){
         const element2 = await driver.wait(until.elementLocated(By.xpath(locators.loginBox)), 4000);
         await element2.click();
-        await driver.wait(until.elementLocated(By.xpath(locators.emailInputField)),4000).sendKeys("6303947470");
+        await driver.wait(until.elementLocated(By.xpath(locators.emailInputField)),4000).sendKeys(process.env.VALID_USERNAME);
         await driver.wait(until.elementLocated(By.xpath(locators.continueCTA)),1000).click();
-        await driver.wait(until.elementLocated(By.xpath(locators.passwordInputField)),2000).sendKeys("EBSRKaghta2$1",Key.RETURN);
+        await driver.wait(until.elementLocated(By.xpath(locators.passwordInputField)),2000).sendKeys(process.env.VALID_PASSWORD,Key.RETURN);
         await driver.sleep(2000);    
 
     },
@@ -53,9 +53,9 @@ const loginObject = {
     async invalidLogin(){
         const element2 = await driver.wait(until.elementLocated(By.xpath(locators.loginBox)), 4000);
         await element2.click();
-        await driver.wait(until.elementLocated(By.xpath(locators.emailInputField)),4000).sendKeys("6303947470");
+        await driver.wait(until.elementLocated(By.xpath(locators.emailInputField)),4000).sendKeys(process.env.VALID_USERNAME);
         await driver.wait(until.elementLocated(By.xpath(locators.continueCTA)),1000).click();
-        await driver.wait(until.elementLocated(By.xpath(locators.passwordInputField)),2000).sendKeys("kKJHkh^nmn",Key.RETURN);
+        await driver.wait(until.elementLocated(By.xpath(locators.passwordInputField)),2000).sendKeys(process.env.INVALID_USERNAME,Key.RETURN);
     }
     ,
     async example2() {
