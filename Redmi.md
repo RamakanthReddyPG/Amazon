@@ -16,3 +16,12 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/RamakanthReddyPG/Amazon.git
 git push -u origin main
+
+git add .
+git checkout -b feature_branch main
+git commit -m "Any message"
+git push origin feature_branch
+
+
+git branch -d feature_branch          # Delete local branch
+git push origin --delete feature_branch  # Delete remote branch
